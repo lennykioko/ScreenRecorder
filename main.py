@@ -3,6 +3,7 @@ import time
 from PIL import ImageGrab
 import numpy as np
 import cv2
+import pyautogui
 from win32api import GetSystemMetrics
 
 width = GetSystemMetrics(0)
@@ -15,7 +16,8 @@ captured_video = cv2.VideoWriter(file_name, fourcc, 20.0, (width, height))
 
 try:
     while True:
-        img = ImageGrab.grab(bbox=(0, 0, width, height))
+        # img = ImageGrab.grab(bbox=(0, 0, width, height))
+        img = pyautogui.screenshot(region=(0, 0, width, height))
         img_np = np.array(img)
         img_final = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
         cv2.imshow('ScreenRecorder', img_final)
