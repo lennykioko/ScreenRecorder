@@ -9,6 +9,8 @@ from win32api import GetSystemMetrics
 width = GetSystemMetrics(0)
 height = GetSystemMetrics(1)
 
+print(f">>>>>>> Screen resolution: {width}x{height}")
+
 time_stamp = datetime.datetime.now().strftime('%Y-%m-%d--%H-%M-%S')
 file_name = f'{time_stamp}.avi'
 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # or use 'XVID' and .avi if issues
